@@ -6,7 +6,7 @@ const Users = function(user) {
   };
 
 Users.getUsers = result => {
-    sql.query("SELECT * FROM USER", (err, res) => {
+    sql.query("SELECT * FROM UTILISATEUR", (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(null, err);
