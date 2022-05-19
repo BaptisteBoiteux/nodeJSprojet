@@ -12,3 +12,16 @@ exports.findAll = (req, res) => {
       }
     });
 };
+
+exports.findUser= (req, res) => {
+    User.postUsers((err, data) => {
+        if (err)
+        res.status(500).send({
+            message:
+            err.message || "Some error occurred while retrieving tutorials."
+        });
+        else {
+        res.send(data);
+        }
+    });
+};
