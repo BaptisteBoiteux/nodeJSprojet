@@ -5,6 +5,7 @@ const Users = function(user) {
     this.password = user.password;
   };
 
+//Méthode pour get la liste des utilisateurs
 Users.getUsers = result => {
     sql.query("SELECT * FROM UTILISATEUR", (err, res) => {
       if (err) {
@@ -16,16 +17,22 @@ Users.getUsers = result => {
       result(null, res);
     });
   };
+
+//Méthode pour vérifier si un utilisateur peut se connecter ou non
 Users.postUsers =  (req ,result) => {
-    sql.query("SELECT * FROM UTILISATEUR WHERE LOGIN_USR = 'baptiste';"/*+req.body.login*/, (err, res) => {
+    /*request = "SELECT * FROM UTILISATEUR WHERE LOGIN_USR = '" + req.body.login + "';";*/
+    
+    console.log(result.body.login)
+    //console.log(request);
+    sql.query(request, (err, res) => {
       if (err) {
         console.log("error: ", err);
-        result(null, err);
+        result(err, null);
         return;
       }
       console.log("User", res);
       //res.send(true);
-      result.json(res); 
+      result(null, res); 
     });
 };
 
