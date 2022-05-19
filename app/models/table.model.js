@@ -16,6 +16,14 @@ Tables.getRondes = result => {
       return;
     }
     console.log("Rondes: ", res);
+    console.log(res[2].tab_presence);
+    i = 0;
+    while(res[i] != null)
+    {
+    console.log(Array.from(res[i].tab_presence.split(',')));
+    res[i].tab_presence = Array.from(res[i].tab_presence.split(','));
+    i++;
+    }
     result(null, res);
   });
 };
