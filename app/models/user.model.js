@@ -18,6 +18,7 @@ Users.getUsers = result => {
     });
   };
 
+
 //Méthode pour vérifier si un utilisateur peut se connecter ou non
 Users.postUsers =  (req ,result) => {
     /*request = "SELECT * FROM UTILISATEUR WHERE LOGIN_USR = '" + req.body.login + "';";*/
@@ -35,5 +36,7 @@ Users.postUsers =  (req ,result) => {
       result(null, res); 
     });
 };
+
+
 
 module.exports = Users;

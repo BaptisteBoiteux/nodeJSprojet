@@ -22,14 +22,21 @@ exports.findUser= (req, result) => {
     
     request = "SELECT * FROM UTILISATEUR WHERE LOGIN_USR = '" + login + "' AND PASSWD_USR = '" + password + "';";
     
-    console.log(request);
+    console.log("requete : " + request);
     sql.query(request, (err, res) => {
       if (err) {
         console.log("error: ", err);
         result.send(err, null);
         return;
       }
-      if (res.length == 0) { result.send(false)}
-      else { result.send(true)}
+      console.log(res);
+      if (res.length == 0) { 
+        result.send(false);
+        console.log("resp = true")
+      }
+      else { 
+        result.send(true);
+        console.log("resp = true")
+      }
     });
 };
